@@ -107,6 +107,7 @@ export default class Product extends Component {
 
         <div className="flex-1 grid lg:grid-cols-4 md:grid-cols-2 gap-3">
         {data.map((i) => {
+          const finalPrice = i.price - (i.price * i.discount / 100);
             return (
               <div className="p-4 bg-slate-100 shadow rounded-xl" key={i.id}>
                 <div className="bg-slate-300 h-40 rounded-xl grid place-items-center">
@@ -120,6 +121,9 @@ export default class Product extends Component {
                   <span className="text-sm text-gray-600">
                     Discount: {i.discount}%
                   </span>
+                  <p className="text-lg font-bold text-green-600">
+                    {finalPrice.toFixed(2)} USD
+                  </p>
 
                   <div className="flex gap-2 mt-4">
                     <button
